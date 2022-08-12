@@ -9,9 +9,9 @@ endif
 
 all:
 	@echo "Bulding for $(UNAME_S)"
-	env CGO_CFLAGS="$(CFLAGS)" go build -buildmode=c-archive go-auth.go
-	env CGO_LDFLAGS="$(LDFLAGS)" go build -buildmode=c-shared -o go-auth.so
-	go build pw-gen/pw.go
+	env CGO_CFLAGS="$(CFLAGS)" go build -buildvcs=false -buildmode=c-archive go-auth.go
+	env CGO_LDFLAGS="$(LDFLAGS)" go build -buildvcs=false -buildmode=c-shared -o go-auth.so
+	go build -buildvcs=false pw-gen/pw.go
 
 test:
 	cd plugin && make
